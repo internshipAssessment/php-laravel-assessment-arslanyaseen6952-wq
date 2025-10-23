@@ -15,7 +15,7 @@ use App\Models\Order;
 // Save result in $orders
 // ------------------------------------------------------------
 $orders = null; // TODO: assign Eloquent query result to $orders
-
+$order=Order::latest()->where('toatalamount'>100)->OrderBy('desc')->get();
 // ------------------------------------------------------------
 // Task 2 — FormRequest rules for storing a User
 // name: required, string, 2–60
@@ -25,8 +25,12 @@ $orders = null; // TODO: assign Eloquent query result to $orders
 // ------------------------------------------------------------
 function userStoreRules(): array
 {
-    // TODO: return array of Laravel validation rules
-    return [];
+   $validatedata=$request->validate([
+                                    'name':required|min:2|max:60,
+                                    'email':required|unique:users|email,
+                                    'password':required|confirmed|min:8
+   ])
+    return $validatedata;
 }
 
 // ------------------------------------------------------------
@@ -46,6 +50,7 @@ class Order extends Model
     // TODO: paste the scope here
     // public function scopeRecentDays(Builder $query, int $days)
     // {
+    Order::where('created_at',$days
     // }
 }
 */
