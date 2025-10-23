@@ -12,7 +12,7 @@
 // Return the first non-repeating character or null if none.
 // ------------------------------------------------------------
 function firstUniqueChar(string $s): ?string {
-    // TODO: implement
+        
     return null;
 }
 
