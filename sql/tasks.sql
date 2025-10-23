@@ -9,12 +9,12 @@
 -- Sort: order_count DESC
 -- TODO: Write the SQL below
 SELECT
-  -- TODO
+  From Users where created_at >= 9/23/2025 and order by order_count desc 
 ;
 
 -- Task 2 — Products never ordered
 -- Return: id, name of products that appear in ZERO order_items
 -- TODO: Write the SQL below
-SELECT
-  -- TODO
+SELECT  p.id,p.name ineer join from products on order_items o p.order_id=o.id
+        
 ;
